@@ -2,7 +2,7 @@
 @Author: HisenZhang <zhangz29@rpi.edu>
 @Date: 2020-03-27 15:13:50
 @LastEditors: HisenZhang <zhangz29@rpi.edu>
-@LastEditTime: 2020-03-27 21:56:09
+@LastEditTime: 2020-03-27 22:50:20
 @Description: client based on pygame
 '''
 #!/usr/bin/env python
@@ -24,7 +24,7 @@ print(pg.display.list_modes())
 max_res = pg.display.list_modes()[0]
 display_flags = pg.FULLSCREEN | pg.HWSURFACE | pg.DOUBLEBUF
 
-screen = pg.display.set_mode((900, 600))
+screen = pg.display.set_mode(max_res)
 pg.display.set_caption('UTC Clock - OFFILNE')
 
 base_dir = os.path.split(os.path.realpath(sys.argv[0]))[0]
@@ -56,7 +56,7 @@ while True:
                 sys.exit()
             if event.key == pg.K_f:
                 if is_fullscreen:
-                    pg.display.set_mode((900, 600))
+                    pg.display.set_mode(max_res)
                 else:
                     pg.display.set_mode(max_res, display_flags)
                 is_fullscreen = not is_fullscreen
