@@ -2,7 +2,7 @@
 @Author: HisenZhang <zhangz29@rpi.edu>
 @Date: 2020-03-27 15:13:50
 @LastEditors: HisenZhang <zhangz29@rpi.edu>
-@LastEditTime: 2020-03-27 17:27:39
+@LastEditTime: 2020-03-27 21:36:38
 @Description: client based on pygame
 '''
 #!/usr/bin/env python
@@ -25,9 +25,9 @@ display_flags = pg.FULLSCREEN | pg.HWSURFACE | pg.DOUBLEBUF
 screen = pg.display.set_mode((900, 600))
 pg.display.set_caption('UTC Clock - OFFILNE')
 
-time_font = pg.font.SysFont('Ubuntu', 50)
-caption_font = pg.font.SysFont('Ubuntu', 60)
-status_font = pg.font.SysFont('Ubuntu', 20)
+time_font = pg.font.Font('./asset/Ubuntu.ttf', 50)
+caption_font = pg.font.Font('./asset/Ubuntu.ttf', 60)
+status_font = pg.font.Font('./asset/Ubuntu.ttf', 20)
 UTC_caption = caption_font.render("UTC", True, WHITE)
 local_caption = caption_font.render(
     time.strftime('%Z', time.localtime()),

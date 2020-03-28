@@ -2,7 +2,7 @@
 @Author: HisenZhang <zhangz29@rpi.edu>
 @Date: 2020-03-27 16:26:07
 @LastEditors: HisenZhang <zhangz29@rpi.edu>
-@LastEditTime: 2020-03-27 16:56:17
+@LastEditTime: 2020-03-27 21:23:04
 @Description: file content
 '''
 # -*- coding: utf-8 -*-
@@ -16,7 +16,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def index():
-    return app.send_static_file('index.html')
+    return 'Hello' #app.send_static_file('index.html')
 
 
 # @app.route('/display/')
@@ -68,4 +68,4 @@ def auth():
 # 	return 'Verified'
 
 if __name__ == '__main__':
-    app.run(host = '127.0.0.1', port = 8421, debug = True)
+    app.run(host = '0.0.0.0', port = 8421, debug = True)
