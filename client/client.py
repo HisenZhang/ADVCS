@@ -2,7 +2,7 @@
 @Author: HisenZhang <zhangz29@rpi.edu>
 @Date: 2020-03-27 15:13:50
 @LastEditors: HisenZhang <zhangz29@rpi.edu>
-@LastEditTime: 2020-03-27 21:36:38
+@LastEditTime: 2020-03-27 21:56:09
 @Description: client based on pygame
 '''
 #!/usr/bin/env python
@@ -10,6 +10,7 @@
 
 
 import pygame as pg
+import os
 import sys
 import time
 import requests as rq
@@ -19,15 +20,19 @@ from config import *
 
 pg.init()
 
+print(pg.display.list_modes())
 max_res = pg.display.list_modes()[0]
 display_flags = pg.FULLSCREEN | pg.HWSURFACE | pg.DOUBLEBUF
 
 screen = pg.display.set_mode((900, 600))
 pg.display.set_caption('UTC Clock - OFFILNE')
 
-time_font = pg.font.Font('./asset/Ubuntu.ttf', 50)
-caption_font = pg.font.Font('./asset/Ubuntu.ttf', 60)
-status_font = pg.font.Font('./asset/Ubuntu.ttf', 20)
+base_dir = os.path.split(os.path.realpath(sys.argv[0]))[0]
+print(base_dir)
+
+time_font = pg.font.Font(base_dir+'/asset/Ubuntu.ttf', 50)
+caption_font = pg.font.Font(base_dir+'/asset/Ubuntu.ttf', 60)
+status_font = pg.font.Font(base_dir+'/asset/Ubuntu.ttf', 20)
 UTC_caption = caption_font.render("UTC", True, WHITE)
 local_caption = caption_font.render(
     time.strftime('%Z', time.localtime()),
