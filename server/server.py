@@ -40,32 +40,5 @@ def auth():
         return jsonify({"error": True, "msg": "Unknown"})
 
 
-# @app.route('/qr/',methods=['POST'])
-# def verify():
-# 	global message
-# 	data = request.form.get('data',None)
-# 	# data = request.args.get('data')
-# 	# print(data)
-# 	data = urllib.parse.unquote(data)
-# 	data = data.split('>=<')
-# 	print(eval(data[1]))
-# 	for i in d:
-# 		if i["id"] == int(data[0]):
-# 			privkey = rsa.PrivateKey.load_pkcs1(i["pvk"])
-# 			try:
-# 				info = rsa.decrypt(eval(data[1]), privkey).decode('utf-8')
-# 				if info == i["info"]:
-# 					message = "\n\nOK - ID:"+str(i["id"])+" Info:"+info+"\n\n"
-# 					print(message)
-# 					# return "\n\nOK - ID:"+str(i["id"])+" Info:"+info+"\n\n"
-# 				else:
-# 					print("Info Mismatch")
-# 					# return 'Info Mismatch'
-# 			except rsa.pkcs1.DecryptionError:
-# 				message = "Expired"
-# 				print(message)
-# 				# return 'Expired'
-# 	return 'Verified'
-
 if __name__ == '__main__':
     app.run(host = '0.0.0.0', port = 8421, debug = True)
